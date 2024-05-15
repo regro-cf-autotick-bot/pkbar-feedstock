@@ -9,9 +9,11 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/pkbar-{{ version }}.tar.gz
   sha256: 3a6c389688cfa70c84433171ece71098c7f7181de3ba8375019de5713501ef15
+  patches:
+    - patches/gh0007.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -41,3 +43,4 @@ about:
 extra:
   recipe-maintainers:
     - hadim
+    - mikemhenry

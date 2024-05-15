@@ -1,0 +1,24 @@
+diff --git a/pkbar/__init__.py b/pkbar/__init__.py
+index a9cd58b..a26de20 100644
+--- a/pkbar/__init__.py
++++ b/pkbar/__init__.py
+@@ -1,10 +1,15 @@
+ from .pkbar import Pbar, Kbar
+-from pkg_resources import get_distribution, DistributionNotFound
++from importlib.metadata import version
++
++
++class DistributionNotFound(Exception):
++    pass
++
+ 
+ try:
+-    __version__ = get_distribution(__name__).version
++    __version__ = version(__name__)
+ except DistributionNotFound:
+     # package is not installed
+     pass
+ 
+-__all__ = ['Pbar', 'Kbar']
+\ No newline at end of file
++__all__ = ["Pbar", "Kbar"]
